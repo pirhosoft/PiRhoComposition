@@ -1,0 +1,147 @@
+﻿.pirho-dictionary-field
+{
+}
+
+.pirho-dictionary-field--empty
+{
+}
+
+.pirho-dictionary-field--add-disabled
+{
+}
+
+.pirho-dictionary-field--remove-disabled
+{
+}
+
+.pirho-dictionary-field--add-key-invalid
+{
+}
+
+.pirho-dictionary-field__empty-label
+{
+	display: none;
+	margin: 5px;
+	white-space: normal;
+}
+
+.pirho-dictionary-field--empty .pirho-dictionary-field__empty-label
+{
+	display: flex;
+}
+
+.pirho-dictionary-field__items
+{
+	flex-grow: 1;
+	flex-shrink: 1;
+}
+
+.pirho-dictionary-field__key-text
+{
+	display: flex;
+	flex-grow: 1;
+	margin: 0px;
+	align-self: stretch;
+}
+
+.pirho-dictionary-field--add-disabled .pirho-dictionary-field__key-text
+{
+	display: none;
+}
+
+.pirho-dictionary-field--add-key-valid > .pirho-frame__header > .pirho-dictionary-field__key-text > .unity-text-field__input
+{
+	background-color: #99FF99;
+}
+
+.pirho-dictionary-field--add-key-invalid > .pirho-frame__header > .pirho-dictionary-field__key-text > .unity-text-field__input
+{
+	background-color: #FF9999;
+}
+
+.pirho-dictionary-field__add-button
+{
+	margin-left: 5px;
+	display: flex;
+}
+
+.pirho-dictionary-field--add-disabled .pirho-dictionary-field__add-button
+{
+	display: none;
+}
+
+.pirho-dictionary-field__remove-button
+{
+	display: flex;
+	margin-left: 5px;
+	min-width: 16px;
+	min-height: 16px;
+	max-width: 16px;
+	max-height: 16px;
+	align-self: flex-start;
+	margin-top: 3px;
+}
+
+.pirho-dictionary-field--remove-disabled .pirho-dictionary-field__remove-button
+{
+	display: none;
+}
+
+.pirho-dictionary-field__drag-handle
+{
+	display: flex;
+	cursor: move-arrow;
+	margin-top: 5px;
+	margin-right: 5px;
+	flex-shrink: 0;
+	align-self: flex-start;
+}
+
+.pirho-dictionary-field--reorder-disabled .pirho-dictionary-field__drag-handle
+{
+	display: none;
+}
+
+.pirho-dictionary-field__drag-placeholder
+{
+	flex-grow: 1;
+	background-color: #3E7DE7;
+	height: 4px;
+	border-radius: 2px;
+}
+
+.pirho-dictionary-field__item
+{
+	flex-direction: row;
+	flex-grow: 1;
+	align-items: center;
+	padding: 3px 5px;
+}
+
+.pirho-dictionary-field__item--dragging
+{
+	position: absolute;
+	background-color: #000;
+}
+
+.pirho-dictionary-field__item--even
+{
+	background-color: #DFDFDF;
+}
+
+.pirho-dictionary-field__item--odd
+{
+	background-color: #CBCBCB;
+}
+
+.pirho-dictionary-field__item__content
+{
+	flex-grow: 1;
+	flex-shrink: 1;
+}
+
+.pirho-dictionary-field__item .unity-foldout
+{
+	margin-left: 15px;
+	margin-top: 2px;
+}

@@ -1,0 +1,17 @@
+﻿.pirho-graph-node__input
+{
+	flex-direction: row;
+}
+
+.pirho-graph-node__input__label
+{
+	flex-grow: 1;
+	padding: 2px 2px 2px 0px;
+}
+
+.pirho-graph-node__input__icon
+{
+	width: 16px;
+	height: 14px;
+	align-self: center;
+}
