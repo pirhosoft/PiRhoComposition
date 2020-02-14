@@ -251,6 +251,7 @@ namespace PiRhoSoft.Utilities.Editor
 
 			return _unknownPath;
 		}
+
 		#endregion
 	}
 }

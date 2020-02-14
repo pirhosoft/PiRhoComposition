@@ -80,8 +80,8 @@ namespace PiRhoSoft.Composition.Editor
 			_inputsList.SetProxy(inputsProxy, null, false);
 			_outputsList.SetProxy(outputsProxy, null, false);
 
-			_rootProperty.serializedObject.ApplyModifiedProperties();
-			this.Bind(_rootProperty.serializedObject);
+			//_rootProperty.serializedObject.ApplyModifiedProperties();
+			//this.Bind(_rootProperty.serializedObject);
 		}
 
 		private class GraphInputsProxy : IListProxy

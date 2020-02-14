@@ -5,7 +5,7 @@ using UnityEditor.UIElements;
 
 namespace PiRhoSoft.Utilities.Editor
 {
-	// This class exists until Unity updates UIElements to work with property drawers.
+	// This class exists until Unity updates UIElements to work with property drawers
 
 	[CustomEditor(typeof(Object), true, isFallback = true)]
 	[CanEditMultipleObjects]

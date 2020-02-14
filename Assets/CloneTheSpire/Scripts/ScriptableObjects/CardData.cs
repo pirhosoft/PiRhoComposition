@@ -13,16 +13,6 @@ namespace CloneTheSpire
 		Curse
 	}
 
-	public enum CardDestination
-	{
-		DiscardPile,
-		ExhaustPile,
-		DrawPile,
-		Hand,
-		Avatar,
-		Deck
-	}
-
 	public class CardData : ScriptableObject
 	{
 		public CardData Data;
@@ -37,8 +27,8 @@ namespace CloneTheSpire
 		public CardData Upgrade;
 
 		public CardType Type = CardType.Attack;
-		public CardDestination AfterPlayDestination = CardDestination.DiscardPile;
-		public CardDestination EndOfTurnDestination = CardDestination.DiscardPile;
+		public CardDestination AfterPlayDestination = CardDestination.Discard;
+		public CardDestination EndOfTurnDestination = CardDestination.Discard;
 
 		public Graph OnDraw;
 		public Graph OnAddToDeck;

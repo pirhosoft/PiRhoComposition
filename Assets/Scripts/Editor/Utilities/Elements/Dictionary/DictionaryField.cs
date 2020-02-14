@@ -362,7 +362,7 @@ namespace PiRhoSoft.Utilities.Editor
 
 		private void UpdateEmptyState()
 		{
-			EnableInClassList(EmptyUssClassName, _proxy == null | _proxy.Count == 0);
+			EnableInClassList(EmptyUssClassName, _proxy == null || _proxy.Count == 0);
 		}
 
 		private void UpdateEmptyLabel()

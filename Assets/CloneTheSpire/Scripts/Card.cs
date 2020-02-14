@@ -5,6 +5,17 @@ namespace CloneTheSpire
 {
 	public enum CardLocation
 	{
+		Deck,
+		Hand,
+		Discard,
+		Exhaust,
+		Character,
+		Draw
+	}
+
+	public enum CardDestination
+	{
+		Deck,
 		Hand,
 		Discard,
 		Exhaust,
@@ -16,9 +27,9 @@ namespace CloneTheSpire
 
 	public class Card : MonoBehaviour
 	{
-		public CardLocation StartLocation = CardLocation.DrawRandom;
-		public CardLocation PlayLocation = CardLocation.Discard;
-		public CardLocation ShuffleLocation = CardLocation.DrawRandom;
+		public CardDestination StartDestination = CardDestination.DrawRandom;
+		public CardDestination PlayDestination = CardDestination.Discard;
+		public CardDestination ShuffleDestination = CardDestination.DrawRandom;
 
 		public bool IsTargetable;
 		public int Cost;
