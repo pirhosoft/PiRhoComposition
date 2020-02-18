@@ -1,0 +1,27 @@
+{
+	"name": "com.pirho.composition",
+	"version": "0.0.1",
+	"displayName": "PiRho Composition",
+	"description": "A visual graph based editor for creating UI, events, and other gameplay sequences",
+	"unity": "2019.3",
+	"keywords": [ "runtime", "sequencing", "graph" ],
+	"author": {
+		"name": "PiRho Soft",
+		"email": "admin@pirhosoft.com",
+		"url": "https://pirhosoft.com/"
+	},
+	"dependencies": {
+		"com.unity.addressables": "1.1.10",
+		"com.pirho.utilities": "2.1.0",
+		"com.pirho.variables": "0.0.1",
+		"com.pirho.expressions": "0.0.1",
+		"com.pirho.bindings": "0.0.1"
+	},
+	"samples": [
+		{
+			"displayName": "Clone the Spire",
+			"description": "An attempted clone of Slay the Spire to demonstrate Composition capabilities",
+			"path": "Samples~/CloneTheSpire"
+		}
+	]
+}
