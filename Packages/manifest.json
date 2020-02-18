@@ -1,14 +1,12 @@
 {
   "dependencies": {
+    "com.pirho.bindings": "https://github.com/pirhosoft/PiRhoBindings.git#upm",
+    "com.pirho.expressions": "https://github.com/pirhosoft/PiRhoExpressions.git#upm",
+    "com.pirho.utilities": "https://github.com/pirhosoft/PiRhoUtilities.git#upm",
+    "com.pirho.variables": "https://github.com/pirhosoft/PiRhoVariables.git#upm",
     "com.unity.2d.sprite": "1.0.0",
-    "com.unity.2d.tilemap": "1.0.0",
-    "com.unity.addressables": "1.5.1",
-    "com.unity.collab-proxy": "1.2.16",
-    "com.unity.ide.rider": "1.1.4",
-    "com.unity.ide.vscode": "1.1.4",
-    "com.unity.test-framework": "1.1.9",
+    "com.unity.addressables": "1.6.2",
     "com.unity.textmeshpro": "2.0.1",
-    "com.unity.timeline": "1.2.10",
     "com.unity.ugui": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
@@ -41,5 +39,23 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
+  },
+  "lock": {
+    "com.pirho.bindings": {
+      "revision": "upm",
+      "hash": "8adafbfeca00594a0f7ba37cb8561b32e7872828"
+    },
+    "com.pirho.expressions": {
+      "revision": "upm",
+      "hash": "2e24adc5a4bc85e5fb3eeaeb8b60d9eadfcd449d"
+    },
+    "com.pirho.utilities": {
+      "revision": "upm",
+      "hash": "fda5d8177a8177056f57e37aecaea2a942c02ab1"
+    },
+    "com.pirho.variables": {
+      "revision": "upm",
+      "hash": "561a20f4fa6b7c4803f4b5a1624dbbf139e2f576"
+    }
   }
 }

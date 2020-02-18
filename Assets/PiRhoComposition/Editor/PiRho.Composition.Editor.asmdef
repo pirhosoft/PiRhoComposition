@@ -1,0 +1,25 @@
+{
+    "name": "PiRho.Composition.Editor",
+    "references": [
+        "GUID:10df67e03cd9ebb4e864054f963715b4",
+        "GUID:65ba2dbd2f90a604abc00011d2cb0a32",
+        "GUID:78824fde5ef6d714d80af44737fb5cfd",
+        "GUID:3715f24fc38286044b48d4ff45a54a39",
+        "GUID:e9f8ee77fa5328c449d211d7bc75379b",
+        "GUID:ad6ad0f1fbea6914a8d5c59e8acd21a6",
+        "GUID:578161fc3021b8d439e4e23de1821081",
+        "GUID:69448af7b92c7f342b298e06a37122aa",
+        "GUID:9e24947de15b9834991c9d8411ea37cf"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
