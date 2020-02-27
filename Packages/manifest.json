@@ -43,19 +43,19 @@
   "lock": {
     "com.pirho.bindings": {
       "revision": "upm",
-      "hash": "8adafbfeca00594a0f7ba37cb8561b32e7872828"
+      "hash": "cefc4077dd2becb37cf114171b199850371905af"
     },
     "com.pirho.expressions": {
       "revision": "upm",
-      "hash": "2e24adc5a4bc85e5fb3eeaeb8b60d9eadfcd449d"
+      "hash": "09aea16d28f409ba8ae691e910728dd73b793434"
     },
     "com.pirho.utilities": {
       "revision": "upm",
-      "hash": "fda5d8177a8177056f57e37aecaea2a942c02ab1"
+      "hash": "b9a07002aaa719967010c25644d0bc0463996a8a"
     },
     "com.pirho.variables": {
       "revision": "upm",
-      "hash": "561a20f4fa6b7c4803f4b5a1624dbbf139e2f576"
+      "hash": "112cca0b0a886af280d3a0e23de8409f47904f2f"
     }
   }
 }
