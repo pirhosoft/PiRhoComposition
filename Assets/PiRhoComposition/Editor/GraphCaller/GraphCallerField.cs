@@ -1,6 +1,9 @@
 ﻿using PiRhoSoft.Utilities.Editor;
+using PiRhoSoft.Variables;
 using PiRhoSoft.Variables.Editor;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
@@ -24,8 +27,9 @@ namespace PiRhoSoft.Composition.Editor
 		private readonly SerializedProperty _inputsProperty;
 		private readonly SerializedProperty _outputsProperty;
 
-		private ListField _inputsList;
-		private ListField _outputsList;
+		private readonly ListField _inputsList;
+		private readonly ListField _outputsList;
+		private readonly GraphCaller _graphCaller;
 
 		public GraphCallerField(SerializedProperty property)
 		{
@@ -33,6 +37,7 @@ namespace PiRhoSoft.Composition.Editor
 			_graphProperty = property.FindPropertyRelative(nameof(GraphCaller.Graph));
 			_inputsProperty = property.FindPropertyRelative(nameof(GraphCaller.Inputs));
 			_outputsProperty = property.FindPropertyRelative(nameof(GraphCaller.Outputs));
+			_graphCaller = property.GetObject<GraphCaller>();
 
 			var graphField = new ObjectPickerField(typeof(Graph)).ConfigureProperty(_graphProperty);
 			graphField.SetFieldLabel(property.displayName);
@@ -74,14 +79,62 @@ namespace PiRhoSoft.Composition.Editor
 			EnableInClassList(NoInputsUssClassName, graph == null || graph.Inputs.Count == 0);
 			EnableInClassList(NoOutputsUssClassName, graph == null || graph.Outputs.Count == 0);
 
+			if (graph)
+			{
+				var inputs = new List<GraphInput>();
+				var outputs = new List<GraphOutput>();
+
+				foreach (var definition in graph.Inputs)
+				{
+					var existing = _graphCaller.Inputs.Where(input => input.Name == definition.Name).FirstOrDefault();
+
+					if (existing != null && (existing.Type == GraphInputType.Expression || definition.IsValid(existing.Value.Variable)))
+					{
+						if (!inputs.Any(input => input.Name == definition.Name))
+							inputs.Add(existing);
+					}
+					else
+					{
+						inputs.Add(new GraphInput
+						{
+							Name = definition.Name,
+							Type = GraphInputType.Value,
+							Value = new SerializedVariable { Variable = definition.Generate() }
+						});
+					}
+				}
+
+				foreach (var definition in graph.Outputs)
+				{
+					var existing = _graphCaller.Outputs.Where(output => output.Name == definition.Name).FirstOrDefault();
+
+					if (existing != null)
+					{
+						if (!outputs.Any(output => output.Name == definition.Name))
+							outputs.Add(existing);
+					}
+					else
+					{
+						outputs.Add(new GraphOutput
+						{
+							Name = definition.Name,
+							Type = GraphOutputType.Ignore
+						});
+					}
+				}
+
+				_graphCaller.Inputs = inputs;
+				_graphCaller.Outputs = outputs;
+			}
+
 			var inputsProxy = new GraphInputsProxy(_inputsProperty, graph);
 			var outputsProxy = new GraphOutputsProxy(_outputsProperty, graph);
 
 			_inputsList.SetProxy(inputsProxy, null, false);
 			_outputsList.SetProxy(outputsProxy, null, false);
 
-			//_rootProperty.serializedObject.ApplyModifiedProperties();
-			//this.Bind(_rootProperty.serializedObject);
+			_inputsList.BindProperty(_inputsProperty);
+			_outputsList.BindProperty(_inputsProperty);
 		}
 
 		private class GraphInputsProxy : IListProxy
