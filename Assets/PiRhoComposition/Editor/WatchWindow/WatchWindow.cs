@@ -204,7 +204,7 @@ namespace PiRhoSoft.Composition.Editor
 
 			if (CompositionManager.Exists)
 			{
-				_globalContainer.Add(new VariableDictionaryWatchControl(GraphDictionary.GlobalStoreName, VariableContext.Default, true));
+				_globalContainer.Add(new VariableDictionaryWatchControl(GraphDictionary.GlobalName, VariableContext.Default, true));
 
 				foreach (var graph in CompositionManager.TrackingState.Keys)
 					_collectionsContainer.Add(new VariableDictionaryWatchControl(graph.name, graph.Variables, true));

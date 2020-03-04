@@ -47,7 +47,7 @@
     },
     "com.pirho.expressions": {
       "revision": "upm",
-      "hash": "09aea16d28f409ba8ae691e910728dd73b793434"
+      "hash": "f94a1b8169627bfd4567dfe06ebbc700faddfa0c"
     },
     "com.pirho.utilities": {
       "revision": "upm",
@@ -55,7 +55,7 @@
     },
     "com.pirho.variables": {
       "revision": "upm",
-      "hash": "112cca0b0a886af280d3a0e23de8409f47904f2f"
+      "hash": "c627c943c3ee89cb5f40b2aa26adebf702764692"
     }
   }
 }

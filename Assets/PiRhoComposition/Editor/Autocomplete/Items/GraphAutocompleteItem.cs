@@ -8,10 +8,10 @@ namespace PiRhoSoft.Composition.Editor
 	{
 		private Graph _graph;
 
-		private readonly InputAutocompleteItem _input = new InputAutocompleteItem { Name = GraphDictionary.InputStoreName };
-		private readonly OutputAutocompleteItem _output = new OutputAutocompleteItem { Name = GraphDictionary.OutputStoreName };
-		private readonly LocalAutocompleteItem _local = new LocalAutocompleteItem { Name = GraphDictionary.LocalStoreName };
-		private readonly GlobalAutocompleteItem _global = new GlobalAutocompleteItem { Name = GraphDictionary.GlobalStoreName };
+		private readonly InputAutocompleteItem _input = new InputAutocompleteItem { Name = GraphDictionary.InputName };
+		private readonly OutputAutocompleteItem _output = new OutputAutocompleteItem { Name = GraphDictionary.OutputName };
+		private readonly LocalAutocompleteItem _local = new LocalAutocompleteItem { Name = GraphDictionary.LocalName };
+		private readonly GlobalAutocompleteItem _global = new GlobalAutocompleteItem { Name = GraphDictionary.GlobalName };
 		//private readonly SceneAutocompleteItem _scene = new SceneAutocompleteItem { Name = CompositionManager.SceneStoreName };
 
 		protected override void Setup(Graph graph)

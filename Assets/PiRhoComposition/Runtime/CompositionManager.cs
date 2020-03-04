@@ -95,7 +95,7 @@ namespace PiRhoSoft.Composition
 #if UNITY_EDITOR
 
 			private int _iterations = 0;
-			private Stack<TrackingEnumerator> _trackers = new Stack<TrackingEnumerator>(5);
+			private readonly Stack<TrackingEnumerator> _trackers = new Stack<TrackingEnumerator>(5);
 
 			public bool MoveNext()
 			{

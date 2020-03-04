@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37fc6f8ca9decf2499c2de065b8a84d4, type: 3}
+  m_Name: SampleGraph
+  m_EditorClassIdentifier: 
+  Inputs:
+    _items: []
+  Outputs:
+    _items: []
+  StartNode: {fileID: 0}
+  Nodes:
+  - {fileID: 513282852235724826}
+  references:
+    version: 1
+--- !u!114 &513282852235724826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c91e554be491c15489facbf182695c15, type: 3}
+  m_Name: LoadSceneNode
+  m_EditorClassIdentifier: 
+  Graph: {fileID: 11400000}
+  GraphPosition: {x: 130, y: -31}
+  IsBreakpoint: 0
+  Next: {fileID: 0}
+  Scene:
+    Type: 0
+    Value:
+      _data:
+        _content: EwAAAAA=
+        _references: []
+    Expression:
+      _content: 
+  WaitForCompletion: 1
+  Cleanup: 1
+  Additive: 1

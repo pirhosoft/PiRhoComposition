@@ -10,14 +10,14 @@ namespace PiRhoSoft.Composition
 {
 	public enum GraphInputType
 	{
-		Reference,
+		Expression,
 		Value
 	}
 
 	public enum GraphOutputType
 	{
 		Ignore,
-		Reference
+		Expression
 	}
 
 	[Serializable]
@@ -25,7 +25,7 @@ namespace PiRhoSoft.Composition
 	{
 		public string Name;
 		public GraphInputType Type;
-		public ReadOnlyExpression Reference = new ReadOnlyExpression();
+		public ReadOnlyExpression Expression = new ReadOnlyExpression();
 		public SerializedVariable Value = new SerializedVariable();
 	}
 
@@ -34,7 +34,7 @@ namespace PiRhoSoft.Composition
 	{
 		public string Name;
 		public GraphOutputType Type;
-		public AssignmentExpression Reference = new AssignmentExpression();
+		public AssignmentExpression Expression = new AssignmentExpression();
 	}
 
 	public class GraphDictionary : IVariableDictionary
@@ -42,16 +42,16 @@ namespace PiRhoSoft.Composition
 		private const string _invalidInputError = "(CISII) Failed to create input '{0}' for graph '{1}': the value '{2}' does not satisfy the constraint";
 		private const string _missingInputError = "(CISMI) Failed to read input '{0}' for graph '{1}': the variable '{2}' could not be found";
 
-		public const string InputStoreName = "input";
-		public const string OutputStoreName = "output";
-		public const string LocalStoreName = "local";
-		public const string GlobalStoreName = "global";
+		public const string InputName = "input";
+		public const string OutputName = "output";
+		public const string LocalName = "local";
+		public const string GlobalName = "global";
 
 		public VariableDictionary Input { get; } = new VariableDictionary();
 		public VariableDictionary Output { get; } = new VariableDictionary();
 		public VariableDictionary Local { get; } = new VariableDictionary();
 
-		private readonly string[] _variableNames = new string[] { InputStoreName, OutputStoreName, LocalStoreName, GlobalStoreName };
+		private readonly string[] _variableNames = new string[] { InputName, OutputName, LocalName, GlobalName };
 
 		#region Pooling
 
@@ -78,9 +78,9 @@ namespace PiRhoSoft.Composition
 		{
 			foreach (var input in inputs)
 			{
-				if (input.Type == GraphInputType.Reference)
+				if (input.Type == GraphInputType.Expression)
 				{
-					var value = input.Reference.Execute(variables);
+					var value = input.Expression.Execute(variables);
 					var definition = graph?.Graph.GetInputDefinition(input);
 
 					value = ResolveValue(definition, value, graph.Graph, _invalidInputError, definition.Name);
@@ -92,7 +92,7 @@ namespace PiRhoSoft.Composition
 					}
 					else
 					{
-						Debug.LogWarningFormat(_missingInputError, input.Name, graph.Graph, input.Reference);
+						Debug.LogWarningFormat(_missingInputError, input.Name, graph.Graph, input.Expression);
 					}
 				}
 				else if (input.Type == GraphInputType.Value)
@@ -116,12 +116,10 @@ namespace PiRhoSoft.Composition
 		{
 			foreach (var output in outputs)
 			{
-				if (output.Type == GraphOutputType.Reference)
+				if (output.Type == GraphOutputType.Expression)
 				{
 					var value = Output.GetVariable(output.Name);
-
-					if (!value.IsEmpty)
-						output.Reference.Execute(variables);
+					output.Expression.Assign(variables, value);
 				}
 			}
 		}
@@ -150,10 +148,10 @@ namespace PiRhoSoft.Composition
 		{
 			switch (name)
 			{
-				case InputStoreName: return Variable.Dictionary(Input);
-				case OutputStoreName: return Variable.Dictionary(Output);
-				case LocalStoreName: return Variable.Dictionary(Local);
-				case GlobalStoreName: return Variable.Dictionary(VariableContext.Default);
+				case InputName: return Variable.Dictionary(Input);
+				case OutputName: return Variable.Dictionary(Output);
+				case LocalName: return Variable.Dictionary(Local);
+				case GlobalName: return Variable.Dictionary(VariableContext.Default);
 				default: return Variable.Empty;
 			}
 		}
@@ -162,10 +160,10 @@ namespace PiRhoSoft.Composition
 		{
 			switch (name)
 			{
-				case InputStoreName: return SetVariableResult.ReadOnly;
-				case OutputStoreName: return SetVariableResult.ReadOnly;
-				case LocalStoreName: return SetVariableResult.ReadOnly;
-				case GlobalStoreName: return SetVariableResult.ReadOnly;
+				case InputName: return SetVariableResult.ReadOnly;
+				case OutputName: return SetVariableResult.ReadOnly;
+				case LocalName: return SetVariableResult.ReadOnly;
+				case GlobalName: return SetVariableResult.ReadOnly;
 				default: return SetVariableResult.NotFound;
 			}
 		}
