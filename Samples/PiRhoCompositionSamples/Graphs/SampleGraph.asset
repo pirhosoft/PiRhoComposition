@@ -13,38 +13,23 @@ MonoBehaviour:
   m_Name: SampleGraph
   m_EditorClassIdentifier: 
   Inputs:
-    _items: []
+    _items:
+    - Name: StartText
+      _type: 20
+      _constraint:
+        id: 0
+      _defaultValue:
+        _data:
+          _content: FAAAAAAAAA==
+          _references: []
   Outputs:
     _items: []
   StartNode: {fileID: 0}
-  Nodes:
-  - {fileID: 513282852235724826}
+  Nodes: []
   references:
     version: 1
---- !u!114 &513282852235724826
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c91e554be491c15489facbf182695c15, type: 3}
-  m_Name: LoadSceneNode
-  m_EditorClassIdentifier: 
-  Graph: {fileID: 11400000}
-  GraphPosition: {x: 130, y: -31}
-  IsBreakpoint: 0
-  Next: {fileID: 0}
-  Scene:
-    Type: 0
-    Value:
-      _data:
-        _content: EwAAAAA=
-        _references: []
-    Expression:
-      _content: 
-  WaitForCompletion: 1
-  Cleanup: 1
-  Additive: 1
+    00000000:
+      type: {class: ObjectConstraint, ns: PiRhoSoft.Variables, asm: PiRho.Variables.Runtime}
+      data:
+        _objectType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
