@@ -19,9 +19,9 @@
 	},
 	"samples": [
 		{
-			"displayName": "Clone the Spire",
-			"description": "An attempted clone of Slay the Spire to demonstrate Composition capabilities",
-			"path": "Samples~/CloneTheSpire"
+			"displayName": "PiRhoComposition Samples",
+			"description": "Example graphs and scenes to see how to use PiRhoComposition",
+			"path": "Samples~/PiRhoCompositionSamples"
 		}
 	]
 }

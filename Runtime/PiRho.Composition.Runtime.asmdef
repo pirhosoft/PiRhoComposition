@@ -1,12 +1,12 @@
 {
     "name": "PiRho.Composition.Runtime",
     "references": [
-        "GUID:9e24947de15b9834991c9d8411ea37cf",
-        "GUID:84651a3751eca9349aac36a66bba901b",
         "GUID:3715f24fc38286044b48d4ff45a54a39",
         "GUID:ad6ad0f1fbea6914a8d5c59e8acd21a6",
         "GUID:78824fde5ef6d714d80af44737fb5cfd",
-        "GUID:65ba2dbd2f90a604abc00011d2cb0a32"
+        "GUID:65ba2dbd2f90a604abc00011d2cb0a32",
+        "GUID:9e24947de15b9834991c9d8411ea37cf",
+        "GUID:84651a3751eca9349aac36a66bba901b"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

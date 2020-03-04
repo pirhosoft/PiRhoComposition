@@ -17,16 +17,12 @@ namespace PiRhoSoft.Composition
 
 		public override IEnumerator Run(IGraphRunner graph, IVariableDictionary variables)
 		{
-			//var index = 0;
+			var index = 0;
 
 			while (true)
 			{
 				if (Index.IsValid)
-				{
-					// TODO: this in expression execute
-					// TODO: assign to Variable.Int(index++)
-					Index.Execute(variables);
-				}
+					Index.Assign(variables, Variable.Int(index++));
 
 				var condition = Condition.Execute(variables, VariableType.Bool);
 

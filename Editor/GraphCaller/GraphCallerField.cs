@@ -112,7 +112,7 @@ namespace PiRhoSoft.Composition.Editor
 				var inputProperty = Property.GetArrayElementAtIndex(index);
 				var nameProperty = inputProperty.FindPropertyRelative(nameof(GraphInput.Name));
 				var typeProperty = inputProperty.FindPropertyRelative(nameof(GraphInput.Type));
-				var referenceProperty = inputProperty.FindPropertyRelative(nameof(GraphInput.Reference));
+				var expressionProperty = inputProperty.FindPropertyRelative(nameof(GraphInput.Expression));
 				var valueProperty = inputProperty.FindPropertyRelative(nameof(GraphInput.Value));
 
 				var definition = Graph.Inputs[index];
@@ -121,8 +121,8 @@ namespace PiRhoSoft.Composition.Editor
 				var label = new Label { bindingPath = nameProperty.propertyPath };
 				label.AddToClassList(NameUssClassName);
 
-				var referenceField = new PropertyField(referenceProperty);
-				referenceField.SetFieldLabel(null);
+				var expressionField = new PropertyField(expressionProperty);
+				expressionField.SetFieldLabel(null);
 
 				var valueField = new SerializedVariableField(valueProperty, definition);
 				valueField.AddToClassList(ValueUssClassName);
@@ -140,18 +140,18 @@ namespace PiRhoSoft.Composition.Editor
 				{
 					var type = (GraphInputType)evt.newValue;
 
-					referenceField.SetDisplayed(type == GraphInputType.Reference);
+					expressionField.SetDisplayed(type == GraphInputType.Expression);
 					valueField.SetDisplayed(type == GraphInputType.Value);
 				});
 
 				
-				referenceField.SetDisplayed(typeValue == GraphInputType.Reference);
+				expressionField.SetDisplayed(typeValue == GraphInputType.Expression);
 				valueField.SetDisplayed(typeValue == GraphInputType.Value);
 
 				var container = new VisualElement();
 				container.Add(label);
 				container.Add(typeField);
-				container.Add(referenceField);
+				container.Add(expressionField);
 				container.Add(valueField);
 
 				return container;
@@ -186,7 +186,7 @@ namespace PiRhoSoft.Composition.Editor
 				var outputProperty = Property.GetArrayElementAtIndex(index);
 				var nameProperty = outputProperty.FindPropertyRelative(nameof(GraphOutput.Name));
 				var typeProperty = outputProperty.FindPropertyRelative(nameof(GraphOutput.Type));
-				var referenceProperty = outputProperty.FindPropertyRelative(nameof(GraphOutput.Reference));
+				var referenceProperty = outputProperty.FindPropertyRelative(nameof(GraphOutput.Expression));
 
 				var definition = Graph.Outputs[index];
 
@@ -202,10 +202,10 @@ namespace PiRhoSoft.Composition.Editor
 				typeField.SetFieldLabel(null);
 				typeField.RegisterCallback<ChangeEvent<Enum>>(evt =>
 				{
-					referenceField.SetDisplayed((GraphOutputType)evt.newValue == GraphOutputType.Reference);
+					referenceField.SetDisplayed((GraphOutputType)evt.newValue == GraphOutputType.Expression);
 				});
 
-				referenceField.SetDisplayed(typeValue == GraphOutputType.Reference);
+				referenceField.SetDisplayed(typeValue == GraphOutputType.Expression);
 
 				var container = new VisualElement();
 				container.Add(label);
