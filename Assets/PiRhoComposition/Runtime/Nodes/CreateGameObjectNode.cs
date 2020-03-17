@@ -83,7 +83,7 @@ namespace PiRhoSoft.Composition
 						spawned.name = objectName;
 
 					if (ObjectVariable.IsValid)
-						ObjectVariable.Execute(variables);// Variable.Object(spawned);
+						ObjectVariable.Assign(variables, Variable.Object(spawned));
 				}
 			}
 

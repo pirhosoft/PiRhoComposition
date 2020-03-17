@@ -10,9 +10,6 @@ namespace PiRhoSoft.Composition
 	[CreateGraphNodeMenu("Object Manipulation/Create Scriptable Object", 1)]
 	public class CreateScriptableObjectNode : GraphNode
 	{
-		private const string _invalidTypeError = "Failed to create object in node '{0}': the type '{1}' could not be found";
-		private const string _invalidObjectError = "Failed to create object in node '{0}': an object of type '{1}' could not be instantiated";
-
 		public GraphNode Next;
 
 		[TypePicker(typeof(ScriptableObject), false)]
@@ -24,35 +21,11 @@ namespace PiRhoSoft.Composition
 
 		public override IEnumerator Run(IGraphRunner graph, IVariableDictionary variables)
 		{
-			Type type;
+			var type = Type.GetType(ScriptableObjectType, false);
+			var obj = CreateInstance(type);
 
-			try
-			{
-				type = Type.GetType(ScriptableObjectType, false); // still throws in some cases
-			}
-			catch
-			{
-				type = null;
-			}
-
-			if (type != null)
-			{
-				var obj = CreateInstance(type);
-
-				if (obj != null)
-				{
-					if (ObjectVariable.IsValid)
-						ObjectVariable.Execute(variables); // Variable.Object(obj)
-				}
-				else
-				{
-					Debug.LogErrorFormat(this, _invalidObjectError, name, ScriptableObjectType);
-				}
-			}
-			else
-			{
-				Debug.LogErrorFormat(this, _invalidTypeError, name, ScriptableObjectType);
-			}
+			if (ObjectVariable.IsValid)
+				ObjectVariable.Assign(variables, Variable.Object(obj));
 
 			graph.GoTo(Next, nameof(Next));
 

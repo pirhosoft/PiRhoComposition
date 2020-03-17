@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Inputs:
     _items:
-    - Name: StartText
+    - Name: Hello
       _type: 20
       _constraint:
         id: 0
